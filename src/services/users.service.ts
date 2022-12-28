@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import API from "../api/exampleTable";
+import API from "../api/API";
 
 interface iTableOptions {
   tableId: number;
@@ -11,11 +11,11 @@ export const getData = createAsyncThunk(
 
   async (tableOptions: iTableOptions, { rejectWithValue }) => {
     try {
-      const response = await API.get("", {
+      const response = await API.post("users", null, {
         params: { searchOptions: tableOptions.searchOptions },
       });
       let customResponse = {
-        data: response.data.data,
+        data: response.data.users,
         tableId: tableOptions.tableId,
         searchOptions: tableOptions.searchOptions,
       };

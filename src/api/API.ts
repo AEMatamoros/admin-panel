@@ -1,9 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL:
-    // "http://10.128.254.137:8080/modulo-administrador-voucher-BASA/api/txn/pagenumber/1/pagesize/1",
-    "http://localhost:5175",
+  baseURL: `${import.meta.env.VITE_BASE_URL}`,
   headers: {
     get: {
       Accept: "application/json",
@@ -16,9 +14,8 @@ const API = axios.create({
 
 API.interceptors.request.use((req: any) => {
   if (localStorage.getItem("user") === null) {
-    req.headers.Authorization = `Bearer ${
-      JSON.parse(localStorage.getItem("user") || "{}").token
-    }`;
+    req.headers.Authorization = `Bearer ${JSON.parse(sessionStorage.getItem("portfolioadminpaneluser") || "{}").accessToken
+      }`;
   }
   return req;
 });

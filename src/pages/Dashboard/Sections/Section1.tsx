@@ -4,7 +4,7 @@ import { DashboardCard, AppTable } from '../../../components'
 import { useModal, useAlert } from '../../../hooks'
 import ExampleFormInModal from '../../../components/modalForms/ExampleForm'
 
-import { tableHeaders } from '../../../db/testdb'
+import { tableHeaders } from '../../../db/usersTableHeaders'
 import { iTableOptions } from '../../../interfaces/generic.interfaces'
 
 //Example
@@ -16,7 +16,7 @@ import {
   postData,
   putData,
   deleteData,
-} from '../../../services/exampleService'
+} from '../../../services/users.service'
 
 export default function Section1() {
   //Example CRUD
@@ -32,15 +32,15 @@ export default function Section1() {
 
   let tableOptions: iTableOptions = {
     createItem: {
-      active: true,
+      active: false,
       createForm: CreateForm,
     },
     updateItem: {
-      active: true,
+      active: false,
       updateForm: UpdateForm,
     },
     deleteItem: {
-      active: true,
+      active: false,
       deleteAlert: handleDeleteAlert,
     },
     searchOptions: {
@@ -70,11 +70,11 @@ export default function Section1() {
     <>
       {/* Inner Bar */}
       <div className="w-full border-b-2 border-gray-400">
-        <h5 className="m-0 p-0 text-gray-600">Example Section</h5>
+        <h5 className="m-0 p-0 text-gray-600">Administracion de usuarios</h5>
       </div>
       <AppTable
         tableId={1}
-        tableName="ExampleTable"
+        tableName="Usuarios"
         tableHeaders={tableHeaders}
         tableOptions={tableOptions}
         data={{ dispatchAction: getData }}
@@ -102,12 +102,12 @@ export default function Section1() {
       />
 
       <h6 className="w-full">Modal</h6>
-      <button className="btn-atlantida" onClick={handleModalShow}>
+      <button className="btn-app" onClick={handleModalShow}>
         Modal
       </button>
       {modal}
       <h6 className="w-full">Alert</h6>
-      <button className="btn-atlantida" onClick={handleTopAlert}>
+      <button className="btn-app" onClick={handleTopAlert}>
         Top Alert
       </button>
     </>

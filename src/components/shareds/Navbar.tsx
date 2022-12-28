@@ -18,7 +18,9 @@ export default function Navbar({ handleSidebar, sidebarState }: iProps) {
   const handleOptions = () => {
     setshowOptions(!showOptions)
   }
-
+  const clearUser = () => {
+    sessionStorage.clear()
+  }
   return (
     <nav
       className="
@@ -66,7 +68,7 @@ export default function Navbar({ handleSidebar, sidebarState }: iProps) {
                   tabIndex={-1}
                   id="menu-item-3"
                 >
-                  <strong>
+                  <strong onClick={clearUser}>
                     <FontAwesomeIcon icon={faRightToBracket} /> Cerrar Sesion
                   </strong>
                 </button>

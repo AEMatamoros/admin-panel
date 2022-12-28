@@ -1,15 +1,43 @@
 import logo from '../../assets/img/logo_banco_single_white.svg'
-import { useCreateForm } from '../../hooks'
+import { useAlert, useCreateForm } from '../../hooks'
 import { iControls } from '../../interfaces/generic.interfaces'
 import { iLogin } from '../../interfaces'
 import { useNavigate } from 'react-router-dom'
-
+import axios from 'axios'
 export default function Login() {
   const navigate = useNavigate()
 
-  const onLogin = (data: iLogin) => {
-    alert(JSON.stringify(data))
-    navigate('/Dashboard', { replace: true })
+  let { genericAlert } = useAlert()
+  const onLogin = async (data: iLogin) => {
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_BASE_URL}auth/signin`,
+        data,
+      )
+      sessionStorage.setItem(
+        'portfolioadminpaneluser',
+        JSON.stringify(response.data),
+      )
+      navigate('/Dashboard', { replace: true })
+    } catch (error) {
+      genericAlert(
+        `Acceso Denegado`,
+        'warning',
+        '<p>Verifica tus credencuiales de acceso</p>',
+        false,
+        false,
+        false,
+        'Entendido',
+        '',
+        '',
+        'Thumbs',
+        'gray',
+      )
+        .then((res) => console.log('Delete'))
+        .catch((err) => console.log('err'))
+
+      console.log(error)
+    }
   }
 
   let LoginFormValuesInit: iControls[] = [
@@ -20,7 +48,7 @@ export default function Login() {
         placeholder: 'Ingresa tu nombre de usuario',
       },
       label: 'Usuario',
-      id: 'idUsuario',
+      id: 'username',
       required: true,
       errorMsg: 'El usuario es requerido',
     },
@@ -31,7 +59,7 @@ export default function Login() {
         placeholder: 'Ingresa tu contraseña',
       },
       label: 'Contraseña',
-      id: 'idContrasena',
+      id: 'password',
       required: true,
       errorMsg: 'La contraseña es requerida',
     },

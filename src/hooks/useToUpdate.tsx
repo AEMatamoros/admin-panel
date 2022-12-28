@@ -1,22 +1,22 @@
 // Redux
-import { useSelector, useDispatch } from "react-redux";
-import type { RootState } from "../store/store";
-import { setToUpdateRegister } from "../slices/tableGenericSlice";
+import { useSelector, useDispatch } from 'react-redux'
+import type { RootState } from '../store/store'
+import { setToUpdateRegister } from '../slices/usersSlice'
 
 export default function useToUpdate() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const handleRegisterToUpdate = (element: any) => {
-    dispatch(setToUpdateRegister(element));
-  };
+    dispatch(setToUpdateRegister(element))
+  }
 
   const reset = () => {
-    dispatch(setToUpdateRegister({}));
-  };
+    dispatch(setToUpdateRegister({}))
+  }
 
   const toUpdate = useSelector(
-    (state: RootState) => state.tables.toUpdateregister
-  );
+    (state: RootState) => state.tables.toUpdateregister,
+  )
 
-  return { handleRegisterToUpdate, toUpdate, reset };
+  return { handleRegisterToUpdate, toUpdate, reset }
 }

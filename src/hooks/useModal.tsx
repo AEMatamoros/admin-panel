@@ -1,19 +1,19 @@
-import { Fragment, ReactElement, useRef, useState } from "react";
-import { Dialog, Transition } from "@headlessui/react";
+import { Fragment, ReactElement, useRef, useState } from 'react'
+import { Dialog, Transition } from '@headlessui/react'
 
 export interface iProps {
-  modalHeader: string;
-  modalBody: ReactElement | ReactElement[];
+  modalHeader: string
+  modalBody: ReactElement | ReactElement[]
 }
 
 export default function useModal({ modalHeader, modalBody }: iProps) {
   const handleModalShow = () => {
-    setOpen(!open);
-  };
+    setOpen(!open)
+  }
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
 
-  const cancelButtonRef = useRef(null);
+  const cancelButtonRef = useRef(null)
 
   return {
     modal: (
@@ -39,7 +39,7 @@ export default function useModal({ modalHeader, modalBody }: iProps) {
             >
               <Dialog.Overlay
                 className="fixed inset-0 bg-opacity-75 transition-opacity"
-                style={{ backgroundColor: "rgba(0,0,0,.3)" }}
+                style={{ backgroundColor: 'rgba(0,0,0,.3)' }}
               />
             </Transition.Child>
 
@@ -70,7 +70,7 @@ export default function useModal({ modalHeader, modalBody }: iProps) {
                     <div className="mt-3 text-left sm:mt-0 sm:text-left w-full">
                       <Dialog.Title
                         as="h3"
-                        className="text-lg leading-6 font-medium  px-4 bg-red-500 text-white"
+                        className="text-lg leading-6 font-medium  px-4 bg-indigo-400 text-white"
                       >
                         {modalHeader}
                       </Dialog.Title>
@@ -101,5 +101,5 @@ export default function useModal({ modalHeader, modalBody }: iProps) {
       </Transition.Root>
     ),
     handleModalShow,
-  };
+  }
 }

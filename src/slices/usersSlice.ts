@@ -31,7 +31,7 @@ import {
   postData,
   putData,
   deleteData,
-} from "../services/exampleService";
+} from "../services/users.service";
 
 export const TablesReducer = createSlice({
   name: "TablesReducer",
@@ -74,7 +74,7 @@ export const TablesReducer = createSlice({
     [`${getData.fulfilled}`]: (state: iTablesState, action) => {
       state[action.payload.tableId] = {
         searchOptions: action.payload.searchOptions,
-        content: action.payload.data.content,
+        content: action.payload.data,
         totalElements: action.payload.data.totalElements,
         totalPages: action.payload.data.totalPages,
         loading: false,

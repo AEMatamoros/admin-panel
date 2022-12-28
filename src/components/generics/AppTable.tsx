@@ -125,8 +125,10 @@ export default function AppTable({
                         name={name}
                       />
                     ))}
-                    {(!!tableOptions.updateItem ||
-                      !!tableOptions.deleteItem) && (
+                    {((!!tableOptions.updateItem &&
+                      tableOptions.updateItem.active) ||
+                      (!!tableOptions.deleteItem &&
+                        tableOptions.deleteItem.active)) && (
                       <th
                         key={`${tableId}Options`}
                         className=" w-1/6 min-w-[160px] text-lg font-semibold text-white py-4 lg:py-7 px-3 lg:px-4 border-l border-transparent"
@@ -152,8 +154,10 @@ export default function AppTable({
                         )}
                       </td>
                     ))}
-                    {(!!tableOptions.updateItem ||
-                      !!tableOptions.deleteItem) && (
+                    {((!!tableOptions.updateItem &&
+                      !!tableOptions.updateItem.active) ||
+                      (!!tableOptions.deleteItem &&
+                        !!tableOptions.deleteItem.active)) && (
                       <TableDeleteUpdate
                         tableId={tableId}
                         tableData={tableData}
