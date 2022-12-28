@@ -1,0 +1,31 @@
+export interface txn {
+  id: number;
+  amount: number;
+  aplication_id: string | null;
+  atm_reference: string | null;
+  channel_id: string | null;
+  channel_reference: string | null;
+  core_reference: string | null;
+  creation_date: Date | null;
+  description: string | null;
+  expiration_date: Date | null;
+  integration_bus_reference: string | null;
+  order_id: string | null;
+  str_authorization_code: string | null;
+  str_id_terminal: string | null;
+  str_identifier_payee: string | null;
+  str_identifier_payer: string | null;
+  update_date: Date | null;
+  id_channel: number | null;
+  id_currency: number | null;
+  id_customer_creation: number | null;
+  id_customer_update: number | null;
+  id_error: number | null;
+  id_payee: number | null;
+  id_payee_pi: number | null;
+  id_payer: number | null;
+  id_payer_pi: number | null;
+  id_status: number | null;
+  id_use_case: number | null;
+  id_voucher: number | null;
+}
