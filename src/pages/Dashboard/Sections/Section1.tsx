@@ -2,13 +2,13 @@ import React from 'react'
 import { DashboardCard, AppTable } from '../../../components'
 
 import { useModal, useAlert } from '../../../hooks'
-import ExampleFormInModal from '../../../components/modalForms/ExampleFormInModal'
+import ExampleFormInModal from '../../../components/modalForms/ExampleForm'
 
 import { tableHeaders } from '../../../db/testdb'
 import { iTableOptions } from '../../../interfaces/generic.interfaces'
 
 //Example
-import ExampleCRUD from '../../../components/modalForms/ExampleCRUD'
+import ExampleCRUD from '../../../components/modalForms/TableCRUD'
 
 //Example APi Call
 import {
