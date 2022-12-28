@@ -102,12 +102,12 @@ export default function Section1() {
       />
 
       <h6 className="w-full">Modal</h6>
-      <button className="btn-app" onClick={handleModalShow}>
+      <button className="btn-atlantida" onClick={handleModalShow}>
         Modal
       </button>
       {modal}
       <h6 className="w-full">Alert</h6>
-      <button className="btn-app" onClick={handleTopAlert}>
+      <button className="btn-atlantida" onClick={handleTopAlert}>
         Top Alert
       </button>
     </>
